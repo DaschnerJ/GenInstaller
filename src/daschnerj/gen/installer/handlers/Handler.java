@@ -4,6 +4,7 @@ import daschnerj.gen.installer.utils.Utils;
 
 public class Handler implements IHandler{
 	
+	@SuppressWarnings("unused")
 	private Utils utils;
 	
 	public Handler()
