@@ -1,9 +1,13 @@
 package daschnerj.gen.installer;
 
+import daschnerj.gen.installer.unit.tests.Pork;
+import daschnerj.gen.installer.unit.tests.Red;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Pork pork = new Pork();
+		Red red = new Red();
 
 	}
 
