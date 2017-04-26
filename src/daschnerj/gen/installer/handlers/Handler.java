@@ -36,7 +36,7 @@ public class Handler implements IHandler{
 		{
 			String toSplit = f.toString();
 			System.out.println(toSplit);
-			String[] splitted = toSplit.split(".");
+			String[] splitted = toSplit.split("\\.");
 			for(String string : splitted) System.out.println(string);
 			System.out.println(splitted.length);
 			String ending = splitted[splitted.length-1];
