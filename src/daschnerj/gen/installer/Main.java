@@ -7,7 +7,9 @@ public class Main {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		Pork pork = new Pork();
+		@SuppressWarnings("unused")
 		Red red = new Red();
 
 	}
