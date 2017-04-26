@@ -1,6 +1,6 @@
 package daschnerj.gen.installer.handlers;
 
-import java.io.File;
+import java.nio.file.Path;
 
 public interface IHandler {
 	
@@ -16,7 +16,7 @@ public interface IHandler {
 	 * Gets all the files within the res folder.
 	 * @return Returns an array of files within the res folder.
 	 */
-	public File[] getAllResFiles();
+	public Path[] getAllResFiles();
 	
 	/**
 	 * Creates the initial directories that the files will be located in.

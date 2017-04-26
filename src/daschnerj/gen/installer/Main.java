@@ -5,6 +5,7 @@ import daschnerj.gen.installer.unit.tests.Red;
 
 public class Main {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Pork pork = new Pork();
 		Red red = new Red();

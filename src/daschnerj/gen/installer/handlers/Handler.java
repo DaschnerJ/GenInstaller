@@ -1,7 +1,7 @@
 package daschnerj.gen.installer.handlers;
 
-import java.io.File;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import daschnerj.gen.installer.utils.Utils;
 
@@ -17,25 +17,29 @@ public class Handler implements IHandler{
 	}
 
 	public boolean moveResource(String loc, String des) {
-		File file = new File(loc);
+		Path file = Paths.get(loc);
 		Path desPath = utils.convertStringToPath(des);
 		return utils.copyFile(file, desPath);
 	}
 
-	public File[] getAllResFiles() {
-		Path r = utils.getResJardirectory();
-		File[] files = utils.getAllFiles(r, true);
+	public Path[] getAllResFiles() {
+		Path r = utils.getResJarDirectory();
+		Path[] files = utils.getAllFiles(r, true);
 		return files;
 	}
 	
 	public boolean moveAllFiles()
 	{
-		File[] files = getAllResFiles();
+		Path[] files = getAllResFiles();
 		
-		for(File f : files)
+		for(Path f : files)
 		{
-			String[] split = f.getName().split(".");
-			String ending = split[split.length-1];
+			String toSplit = f.toString();
+			System.out.println(toSplit);
+			String[] splitted = toSplit.split(".");
+			for(String string : splitted) System.out.println(string);
+			System.out.println(splitted.length);
+			String ending = splitted[splitted.length-1];
 			String dir = utils.convertPathToString(utils.getDirectory());
 			switch(ending)
 			{

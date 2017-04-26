@@ -1,6 +1,6 @@
 package daschnerj.gen.installer.utils;
 
-import java.io.File;
+import java.io.InputStream;
 import java.nio.file.Path;
 
 public interface IUtils {
@@ -35,14 +35,16 @@ public interface IUtils {
 	 * Gets the Path to the inner res folder within the jar.
 	 * @return Returns the path of the inner res folder.
 	 */
-	public Path getResJardirectory();
+	public Path getResJarDirectory();
 	
 	/**
 	 * Gets a file from the res folder.
 	 * @param path The String path to the file inside the res folder.
 	 * @return Returns the file located inside the res folder.
 	 */
-	public File getFileFromResFolder(String path);
+	public Path getFilePathFromResFolder(String path);
+	
+	public InputStream getFileFromResFolder(String path);
 	
 	/**
 	 * Copies the file to the Path destination des.
@@ -50,7 +52,7 @@ public interface IUtils {
 	 * @param des The Path des of where to copy to.
 	 * @return Returns true if successful copy, otherwise returns false.
 	 */
-	public boolean copyFile(File file, Path des);
+	public boolean copyFile(Path location, Path des);
 	
 	/**
 	 * Creates a directory if the directory does not exist.
@@ -65,7 +67,7 @@ public interface IUtils {
 	 * @param traverse Boolean to traverse all folders within the folders.
 	 * @return Returns an array of files located within the folder.
 	 */
-	public File[] getAllFiles(Path path, boolean traverse);
+	public Path[] getAllFiles(Path path, boolean traverse);
 	
 
 }
