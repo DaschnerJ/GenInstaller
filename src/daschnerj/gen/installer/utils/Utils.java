@@ -151,6 +151,19 @@ public class Utils implements IUtils{
 	 */
 	@Override
 	public boolean copyFile(Path location, Path des) {
+		String[] directory = location.toString().split("\\\\");
+		des = Paths.get(des.toString() + "\\" + directory[directory.length-1]);
+		try
+		{
+			File parent = des.toFile().getParentFile();
+			parent.mkdirs();
+			new File(parent,directory[directory.length-1]).createNewFile();
+		}
+		catch(IOException e)
+		{
+			System.err.println("Error copying file!!!");
+			e.printStackTrace();
+		}
 		if(isJarRun())
 		{
 			try {
@@ -308,12 +321,10 @@ public class Utils implements IUtils{
 	public InputStream getFileFromResFolder(String path) {
 		if(isJarRun())
 		{
-			try {
-				return this.getClass().getClassLoader().getResource(path).openStream();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return null;
+			String[] splitPath = path.split("\\\\");
+			String newPath = splitPath[0];
+			for(String string : splitPath) if(!string.equals(splitPath[0])) newPath +=("/" + string);
+			return this.getClass().getClassLoader().getResourceAsStream(newPath);
 		}
 		else
 		{
