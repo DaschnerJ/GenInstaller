@@ -6,7 +6,6 @@ public class Pork {
 	
 	public Pork()
 	{
-		@SuppressWarnings("unused")
 		Utils utils = new Utils();
 	}
 

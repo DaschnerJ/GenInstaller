@@ -52,6 +52,9 @@ public class Handler implements IHandler{
 				case "gwf":
 					utils.copyFile(f, utils.convertStringToPath(dir + "\\Gen\\Worlds"));
 					break;
+				case "wav":
+					utils.copyFile(f, utils.convertStringToPath(dir + "\\Gen\\Audio"));
+					break;
 				default:
 					utils.copyFile(f, utils.convertStringToPath(dir + "\\Gen\\Bin"));
 					break;
@@ -68,6 +71,7 @@ public class Handler implements IHandler{
 		utils.createDirectory(dir + "\\Gen\\Textures");
 		utils.createDirectory(dir + "\\Gen\\Configs");
 		utils.createDirectory(dir + "\\Gen\\Worlds");
+		utils.createDirectory(dir + "\\Gen\\Audio");
 		utils.createDirectory(dir + "\\Gen\\Bin");
 		return true;
 	}
